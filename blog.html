@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Blog</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="blog.css" />
+
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .blog-hero-image {
+      background: url('https://images.unsplash.com/photo-1537996194471-e657df975ab4') center/cover no-repeat;
+      height: 45vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+      padding: 2rem;
+      text-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .blog-hero-image h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+    }
+
+    .blog-paragraph {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    .blog-cards-container {
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .blog-entry {
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 15px;
+    }
+
+    .card img {
+      height: 300px;
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    footer {
+      background: #212529;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">🌍 Travel Blog</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="blog-hero-image">
+    <h1>Travel Blog</h1>
+    <p class="blog-paragraph">Explore some of the most beautiful places in the world through my travel experiences.</p>
+  </div>
+
+  <div class="blog-cards-container">
+
+    <div class="blog-entry">
+      <h2>Kyoto, Japan</h2>
+      <div class="card">
+        <img src="https://cdn.gap360.com/tpl/lib/img/private/media/japan-landscape.jpg?width=1200&quality=85"
+          class="card-img-top" alt="Kyoto" />
+        <div class="card-body">
+          <p class="card-text">Kyoto is the heart of Japan’s cultural heritage and a city that effortlessly blends
+            timeless tradition with serene beauty. Known as the former imperial capital, it’s home to over 1,600
+            Buddhist temples, 400 Shinto shrines, and stunning traditional wooden machiya houses that line its charming
+            streets.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Tokyo, Japan</h2>
+      <div class="card">
+        <img
+          src="https://media.cntraveller.com/photos/6343df288d5d266e2e66f082/16:9/w_2560%2Cc_limit/tokyoGettyImages-1031467664.jpeg"
+          class="card-img-top" alt="Tokyo" />
+        <div class="card-body">
+          <p class="card-text">A vibrant fusion of neon nightlife, cutting-edge tech, and timeless shrines. Tokyo
+            dazzles every visitor. Tokyo is a city of vibrant contrasts, where cutting-edge technology and futuristic
+            architecture stand side-by-side with centuries-old traditions. As one of the worlds largest metropolitan
+            areas, Tokyo offers an endless array of experiences for every type of traveler.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Okinawa, Japan</h2>
+      <div class="card">
+        <img src="https://s1.it.atcdn.net/wp-content/uploads/2017/03/iStock-522032391.jpg" class="card-img-top"
+          alt="Okinawa" />
+        <div class="card-body">
+          <p class="card-text">Okinawa offers a laid-back island vibe unlike mainland Japan. With turquoise waters,
+            white sand beaches, and a unique Ryukyuan culture, it's perfect for relaxation, snorkeling, and exploring
+            World War II history — all on a budget-friendly tropical escape. Bangkok is a bustling metropolis where
+            ancient temples and vibrant street markets coexist with modern skyscrapers and lively nightlife. From the
+            golden spires of Wat Arun and the grandeur of the Grand Palace to delicious street food stalls and energetic
+            night bazaars, Bangkok offers a rich sensory experience. It’s a budget-friendly city that invites travelers
+            to explore cultural heritage, shop till you drop, and savor some of the world’s best cuisine without
+            breaking the bank.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Bangkok, Thailand</h2>
+      <div class="card">
+        <img
+          src="https://static.independent.co.uk/2025/01/03/14/newFile-12.jpg?quality=75&width=1368&crop=3%3A2%2Csmart&auto=webp"
+          class="card-img-top" alt="Bangkok" />
+        <div class="card-body">
+          <p class="card-text">Buzzing markets, golden temples, and sizzling street food—Bangkok is sensory overload in
+            the best way. Bangkok is a bustling metropolis where ancient temples and vibrant street markets coexist with
+            modern skyscrapers and lively nightlife. From the golden spires of Wat Arun and the grandeur of the Grand
+            Palace to delicious street food stalls and energetic night bazaars, Bangkok offers a rich sensory
+            experience. Its a budget-friendly city that invites travelers to explore cultural heritage, shop till you
+            drop, and savor some of the worlds best cuisine without breaking the bank.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Bali, Indonesia</h2>
+      <div class="card">
+        <img src="https://cdn.audleytravel.com/2478/1770/79/16027396-pura-ulun-danu-bratan-bali.jpg"
+          class="card-img-top" alt="Bali" />
+        <div class="card-body">
+          <p class="card-text">A tropical haven known for lush rice terraces, sacred temples, and serene beaches. Bali
+            blends spirituality and natural beauty like no other island. Known as the “Island of the Gods,” Bali is a
+            tropical paradise where serene rice terraces, volcanic mountains, and golden beaches come together in
+            perfect harmony. Whether you’re seeking spiritual retreats in Ubud, surfing waves in Canggu, or relaxing on
+            the sands of Seminyak, Bali offers something for every traveler. Affordable luxury, vibrant culture,
+            friendly locals, and flavorful Indonesian cuisine make Bali a top choice for budget-conscious adventurers
+            and digital nomads alike.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Hongkong</h2>
+      <div class="card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Hong_Kong_Island_Skyline_201108.jpg/960px-Hong_Kong_Island_Skyline_201108.jpg"
+          class="card-img-top" alt="Bangkok" />
+        <div class="card-body">
+          <p class="card-text">Experience the vibrant culture, world-class cuisine, and stunning skyline of Hong Kong.
+            From Victoria Peak to bustling night markets, this city blends tradition with modernity. A dazzling fusion
+            of East and West, Hong Kong is where ancient temples meet futuristic skyscrapers. This vibrant city pulses
+            with life — from the bustling street markets of Mong Kok to the luxury shopping of Central. Ride the iconic
+            Star Ferry across Victoria Harbour, take in panoramic views from Victoria Peak, and savor dim sum at a
+            traditional teahouse. With its efficient transport, rich culture, and jaw-dropping skyline, Hong Kong offers
+            a world-class travel experience thats both thrilling and surprisingly accessible for budget-conscious
+            explorers.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Nepal</h2>
+      <div class="card">
+        <img src="https://nht-api.nepalhikingteam.com/media/attachments/manaslu-0.jpg" class="card-img-top"
+          alt="Nepal" />
+        <div class="card-body">
+          <p class="card-text">Nestled in the heart of the Himalayas, Nepal is a land of towering peaks, spiritual
+            serenity, and vibrant culture. Home to Mount Everest, it's a dream destination for trekkers and adventurers
+            alike. But beyond the mountains, Nepal offers peaceful temples, historic cities like Kathmandu and
+            Bhaktapur, and warm hospitality. Whether you're hiking through the Annapurna Circuit, watching prayer flags
+            flutter in the wind, or sipping masala tea with locals, Nepal delivers raw natural beauty and soul-stirring
+            experiences — all on a budget-friendly scale.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-entry">
+      <h2>Ho Chi Minh City, Vietnam</h2>
+      <div class="card">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ho_Chi_Minh_City_panorama_2019_%28cropped2%29.jpg/2560px-Ho_Chi_Minh_City_panorama_2019_%28cropped2%29.jpg"
+          class="card-img-top" alt="Ho Chi Minh" />
+        <div class="card-body">
+          <p class="card-text">A city of contrast: French colonial buildings, fast scooters, and rich history from the
+            Vietnam War. Vietnam is a country of breathtaking contrasts — from the tranquil rice paddies of the north to
+            the buzzing energy of Ho Chi Minh City in the south. Rich in history and culture, it offers ancient temples,
+            colonial architecture, and war memorials. Cruise through the majestic limestone cliffs of Ha Long Bay,
+            wander the lantern-lit streets of Hoi An, or savor street food like pho and banh mi at local markets.
+            Vietnam is not only vibrant and welcoming but also one of Southeast Asias most budget-friendly
+            destinations.
+
+            ⸻
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Follow us on</p>
+      <a href="https://www.instagram.com/sherpafi/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+      <p class="mt-3 small">© 2025 Travel Blog — Crafted with ❤️ for explorers</p>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

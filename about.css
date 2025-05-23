@@ -1,0 +1,152 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0dcaf0;
+}
+
+.navbar-brand {
+  font-size: 1.6rem;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.about-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('img/IMG_1290.jpg') center center / cover no-repeat;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.about-hero h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}
+
+.mission-values {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.timeline li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.timeline li::before {
+  content: "🗺️";
+  margin-right: 0.5rem;
+}
+
+.team-card img {
+  height: 400px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.team-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-title i {
+  color: #0dcaf0;
+  margin-right: 8px;
+}
+
+.carousel img {
+  width: 300px;
+  height: 600px;
+  object-fit: cover;
+}
+
+footer {
+  margin-top: 4rem;
+  background: linear-gradient(to right, #343a40, #212529);
+}
+
+footer a:hover {
+  color: #0dcaf0 !important;
+}
+
+.btn-gradient {
+  background: linear-gradient(45deg, #0dcaf0, #0d6efd);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.btn-gradient:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-to-top button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  display: none;
+  background-color: #0dcaf0;
+  color: white;
+  border: none;
+  padding: 0.6rem 0.9rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  z-index: 1000;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#scrollTopBtn:hover {
+  background-color: #0bace2;
+}

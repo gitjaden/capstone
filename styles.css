@@ -1,0 +1,22 @@
+.home-traveling-card {
+    display: flex;
+    padding: 18px;
+    border: 12px;
+    gap: 24px;
+    border: solid 1px gray;
+}
+
+.home-traveling-img {
+    width: 600px;
+    border-radius: 8px;
+}
+
+.home-traveling-date {
+    color: gray;
+}
+.blog-home-image {
+    height: 500px;
+    background-image: url('');
+    margin-bottom: 40px;
+
+}
