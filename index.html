@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,19 +8,57 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
-
   <!-- Font Awesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
-
-  <!-- Custom Styles -->
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Dark Mode Styles -->
   <style>
-    body {
+    body.dark-mode {
+      background-color: #121212;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode footer {
+      background-color: #1f1f1f;
+    }
+
+    body.dark-mode .home-traveling-card,
+    body.dark-mode .cta-section {
+      background-color: #2a2a2a;
+      color: white;
+    }
+
+    #darkModeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+      border-radius: 10px;
+      margin: 2rem 0;
+    }
+
+    .body {
       background-color: #f8f9fa;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
     .blog-home-image {
-      background: url('https://i.natgeofe.com/n/fa41a76e-d6bc-45af-995f-d929571025f9/golden-gate-bridge-san-francisco-california_16x9.jpg?w=1200') center center / cover no-repeat;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://i.natgeofe.com/n/fa41a76e-d6bc-45af-995f-d929571025f9/golden-gate-bridge-san-francisco-california_16x9.jpg?w=1200') center center / cover no-repeat;
       height: 45vh;
       display: flex;
       align-items: center;
@@ -31,9 +70,20 @@
       font-size: 4rem;
       font-weight: bold;
       color: white;
-      padding: 1rem;
-      border-radius: 5px;
       text-shadow: 0 6px 4px rgba(0, 0, 0, 0.6);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .home-traveling-card {
@@ -42,7 +92,6 @@
       padding: 2rem;
       border-radius: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      max-width: 1100px;
       transition: transform 0.3s ease;
     }
 
@@ -63,22 +112,54 @@
     .destination-card img {
       height: 200px;
       object-fit: cover;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .destination-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .destination-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .cta-section {
-      background: #343a40;
+      background: linear-gradient(135deg, #343a40, #495057);
       color: white;
       padding: 3rem 1rem;
       text-align: center;
-      border-radius: 10px;
+      border-radius: 15px;
       margin-top: 3rem;
+    }
+
+    .btn-outline-light {
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-light:hover {
+      background-color: white;
+      color: #343a40;
     }
 
     footer {
       margin-top: 4rem;
+      background-color: #212529;
+    }
+
+    footer a {
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #0dcaf0 !important;
     }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -109,11 +190,14 @@
       <div class="col-md-6">
         <h3>Top Places to Visit in 2025</h3>
         <p class="home-traveling-date">Published: Wed, May 14</p>
-        <p>Explore some of the most beautiful and culturally rich destinations around the world. From the tranquil temples of Kyoto to the buzzing energy of Bangkok, each journey brings new stories, stunning landscapes, and unforgettable memories. Join me as I uncover hidden gems, savor local flavors, and connect with people from every corner of the globe.</p>
+        <p>Explore cultural wonders, natural beauty, and exciting urban adventures. From Kyoto's serenity to Bangkok's
+          buzz, embark on inspiring journeys.</p>
         <a href="blog.html" class="btn btn-primary mt-2">Read More <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="col-md-6">
-        <img class="home-traveling-img" src="https://cms.gap360.com/storage/thumbs/media/i-itadakimasu-1-900x506-fit.jpg" alt="Top destinations 2025" />
+        <img class="home-traveling-img"
+          src="https://cms.gap360.com/storage/thumbs/media/i-itadakimasu-1-900x506-fit.jpg"
+          alt="Top destinations 2025" />
       </div>
     </div>
   </div>
@@ -124,11 +208,14 @@
       <div class="col-md-6">
         <h3>Budget Friendly Places</h3>
         <p class="home-traveling-date">Published: Wed, May 14</p>
-        <p>A budget traveler's dream. Most of Southeast Asia offers flavorful street food, affordable stays, and a deep cultural experience around every corner. Whether you're island-hopping in the Philippines, exploring ancient ruins in Cambodia, or trekking through northern Thailand, Southeast Asia offers unforgettable adventures without breaking the bank.</p>
+        <p>Affordable experiences await across Southeast Asia. Taste local delicacies, explore stunning temples, and
+          meet welcoming locals without overspending.</p>
         <a href="blog.html" class="btn btn-primary mt-2">Read More <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="col-md-6">
-        <img class="home-traveling-img" src="https://vietnam.travel/sites/default/files/inline-images/what%20to%20eat%20in%20vietnam-2.jpg" alt="Vietnamese street food" />
+        <img class="home-traveling-img"
+          src="https://vietnam.travel/sites/default/files/inline-images/what%20to%20eat%20in%20vietnam-2.jpg"
+          alt="Vietnamese street food" />
       </div>
     </div>
   </div>
@@ -136,31 +223,42 @@
   <!-- Featured Destinations -->
   <div class="container mt-5">
     <h3 class="mb-4 text-center fw-bold">Featured Destinations</h3>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class=" row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card h-100 destination-card">
-          <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRTM7OKxbBav--Nf6i3MfteckK8Rs83uoxoP_2Iyvtt0gM7wM9WFKaBE76J42gK5TNxOvYJR3kquUWgApnl49UoPgQQ_LGl-25558ubSw" class="card-img-top" alt="Kyoto, Japan">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRTM7OKxbBav--Nf6i3MfteckK8Rs83uoxoP_2Iyvtt0gM7wM9WFKaBE76J42gK5TNxOvYJR3kquUWgApnl49UoPgQQ_LGl-25558ubSw"
+            class="card-img-top" alt="Kyoto, Japan">
           <div class="card-body">
             <h5 class="card-title">Kyoto, Japan</h5>
-            <p class="card-text">A blend of tradition and nature with temples, cherry blossoms, and peaceful streets.</p>
+            <p class="card-text">A blend of tradition and nature with temples, cherry blossoms, and peaceful streets.
+            </p>
+            <a href="blog.html" class="btn btn-primary mt-2">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-100 destination-card">
-          <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcS23oFi3yIE5dIcbAf6Faou-pcdWQLwyoiOanG37OqI1wfijUkIf8bilh_dbawRxBStTfJMNVIvSlIqtfS5aJHpdZySGU4uZ4fqrobFzg" class="card-img-top" alt="Bangkok, Thailand">
+          <img
+            src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcS23oFi3yIE5dIcbAf6Faou-pcdWQLwyoiOanG37OqI1wfijUkIf8bilh_dbawRxBStTfJMNVIvSlIqtfS5aJHpdZySGU4uZ4fqrobFzg"
+            class="card-img-top" alt="Bangkok, Thailand">
           <div class="card-body">
             <h5 class="card-title">Bangkok, Thailand</h5>
-            <p class="card-text">Buzzing markets, golden temples, and delicious street food await in this vibrant city.</p>
+            <p class="card-text">Buzzing markets, golden temples, and delicious street food await in this vibrant city.
+            </p>
+            <a href="blog.html" class="btn btn-primary mt-2">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
       <div class="col">
         <div class="card h-100 destination-card">
-          <img src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQg0XCWEoe9RlqsZx6iyB-X5x0MLqZzOBUePRtX9snKLIF-jsh890JdjWlc9SfiqK_J09KZDwJ0TIzZ88YJvVu9nUsYApGzRuFOK9TdFQ" class="card-img-top" alt="Tokyo, Japan">
+          <img
+            src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQg0XCWEoe9RlqsZx6iyB-X5x0MLqZzOBUePRtX9snKLIF-jsh890JdjWlc9SfiqK_J09KZDwJ0TIzZ88YJvVu9nUsYApGzRuFOK9TdFQ"
+            class="card-img-top" alt="Tokyo, Japan">
           <div class="card-body">
             <h5 class="card-title">Tokyo, Japan</h5>
             <p class="card-text">Where tradition meets innovation—from sushi to skyscrapers, Tokyo is a thrill.</p>
+            <a href="blog.html" class="btn btn-primary mt-2">Read More <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -171,21 +269,33 @@
   <div class="container cta-section mt-5">
     <h2>Ready for Your Next Adventure?</h2>
     <p class="lead">Follow my journeys, get insider tips, and start planning your dream trip today.</p>
-    <a href="blog.html" class="btn btn-outline-light btn-lg mt-3">Start Exploring <i class="fas fa-map-marked-alt"></i></a>
+    <a href="blog.html" class="btn btn-outline-light btn-lg mt-3">Start Exploring <i
+        class="fas fa-map-marked-alt"></i></a>
   </div>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-4">
+  <footer class="text-white text-center py-4">
     <div class="container">
       <p class="mb-2">Follow us on</p>
       <a href="https://www.instagram.com/sherpafi/" class="text-white me-3"><i class="fab fa-instagram"></i></a>
       <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-      <p class="mt-3 small">© 2025 Travel Blog — Crafted with ❤️ for explorers</p>
+      <p class="mt-3 small">&copy; 2025 Travel Blog &mdash; Crafted with ❤️ for explorers</p>
     </div>
   </footer>
 
   <!-- Bootstrap Bundle JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
+   <!-- Dark Mode Button -->
+   <button id="darkModeToggle" class="btn btn-secondary">Dark Mode 🌙</button>
+
+   <!-- Scripts -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+     document.getElementById("darkModeToggle").addEventListener("click", () => {
+       document.body.classList.toggle("dark-mode");
+     });
+   </script>
+   
 </body>
+
 </html>
